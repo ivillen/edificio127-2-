@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<!--
+    Edificio:
+    - Glitch: https://edificio127.glitch.me/
+    - Origin: 
+    - License: CC0
+-->
+<html>
+  <head>
+    <title>Tests for grabbing an object</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
+    <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+    
+        <a-entity position="-1 1 -9" obj-model="obj: url(../assets/3d/urjc.obj)"
+          material="color: green" scale="0.1 0.1 0.2">
+</a-entity>
+
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="20" height="20" color="#7BC8A4"></a-plane>
+
+<!--
+      <a-light type="ambient" color="white"></a-light>
+      <a-light type="point" intensity="2" position="-3 9 2"></a-light>
+-->
+      <a-entity position="0 0 0" movement-controls="fly: false"
+		wasd-controls="acceleration: 10; fly: false">
+        <a-entity sphere-collider="objects: .object"
+            super-hands hand-controls="hand: left">
+        </a-entity>
+        <a-entity sphere-collider="objects: .object"
+            super-hands hand-controls="hand: right">
+        </a-entity>
+        <a-entity camera position="0 1.6 0" look-controls></a-entity>
+      </a-entity>
+
+    </a-scene>
+  </body>
+</html>
